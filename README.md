@@ -28,11 +28,11 @@ This skill turns the essay's review guidance into a practical workflow for AI-ge
 npx skills add lzfxxx/agentic-code-review-skill
 ```
 
-`skills.sh` lists repositories automatically after installs through the `skills` CLI.
+`skills.sh` is the primary cross-agent install path. The CLI installs the skill into the detected agent environment and lists repositories automatically after installs.
 
-## Manual Install
+## Manual Fallback
 
-For agents that support `SKILL.md` packages but do not use the `skills` CLI, install the canonical skill folder:
+Use this only when the target agent does not use the `skills` CLI but still supports `SKILL.md` packages.
 
 Codex:
 

@@ -49,18 +49,24 @@ The skill cannot decide:
 
 How to handle it: keep a named human owner for high-risk merges.
 
-## Needs Adapter Work For Native Skill Registries
+## Needs Runtime Or Installer Support
 
-Auto-discovery depends on each agent's registry format.
+`skills.sh` covers cross-agent distribution for supported coding agents through the `skills` CLI. That means this repo does not need a separate adapter for each supported agent.
 
-Known package path:
+Known install path:
 
-- Install `skills/agentic-code-review/`.
-- Or use `npx skills add https://github.com/lzfxxx/agentic-code-review-skill --skill agentic-code-review`.
+- `npx skills add lzfxxx/agentic-code-review-skill`
 
-Known local install targets:
+Manual fallback paths:
 
 - Codex: `~/.codex/skills/agentic-code-review`
 - Claude Code-style skill directories: `~/.claude/skills/agentic-code-review`
 
-Anything beyond that should be added as a small adapter once the target agent's exact skill format is known.
+What still cannot be captured in the skill:
+
+- agents not supported by `skills.sh`
+- private or locked-down environments where `npx skills add` cannot run
+- agent runtimes that install the file but do not auto-invoke skills reliably
+- organization-specific allowlists, mirrors, or marketplace approval rules
+
+How to handle it: use `skills.sh` as the default installer, and add a small adapter only for unsupported or locked-down environments.
