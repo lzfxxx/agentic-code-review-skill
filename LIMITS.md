@@ -51,14 +51,16 @@ How to handle it: keep a named human owner for high-risk merges.
 
 ## Needs Adapter Work For Native Skill Registries
 
-`AGENTIC_CODE_REVIEW.md` works with any agent that can read Markdown. Native auto-discovery depends on each agent's registry format.
+Auto-discovery depends on each agent's registry format.
 
-Known portable path:
+Known package path:
 
-- Tell the agent: `Read AGENTIC_CODE_REVIEW.md and use it to review this PR.`
+- Install `skills/agentic-code-review/`.
+- Or use `npx skills add https://github.com/lzfxxx/agentic-code-review-skill --skill agentic-code-review`.
 
-Known native package path:
+Known local install targets:
 
-- Agents that support `SKILL.md` packages can install `agentic-code-review/`.
+- Codex: `~/.codex/skills/agentic-code-review`
+- Claude Code-style skill directories: `~/.claude/skills/agentic-code-review`
 
 Anything beyond that should be added as a small adapter once the target agent's exact skill format is known.
