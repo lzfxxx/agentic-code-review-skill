@@ -7,6 +7,8 @@ description: Risk-tiered code review workflow for AI-generated or agent-authored
 
 Use review effort where being wrong is expensive. Run different AI review perspectives on risky changes because overlap is often low. Treat AI reviewers as sensors, not verdicts. A human owns the merge.
 
+For policy design, queue triage, team process, or a high-risk review, read `references/review-system.md` before reviewing.
+
 ## Workflow
 
 1. Require evidence before review:
