@@ -1,11 +1,11 @@
 ---
 name: agentic-code-review
-description: Risk-tiered code review workflow for AI-generated or agent-authored changes. Use when reviewing pull requests, diffs, or batches of incoming PRs produced or coauthored by coding agents; triaging review queues by blast radius; deciding what evidence is required before review; auditing test, CI, security, prompt-injection, or maintainability risks; or deciding where human judgment must stay in an AI-assisted review loop.
+description: Risk-tiered code review workflow for AI-generated or agent-authored changes. Use when reviewing pull requests, diffs, or batches of incoming PRs produced or coauthored by coding agents; triaging review queues by blast radius; deciding what evidence is required before review; running multiple AI review perspectives; auditing test, CI, security, prompt-injection, or maintainability risks; or deciding where human judgment must stay in an AI-assisted review loop.
 ---
 
 # Agentic Code Review
 
-Use review effort where being wrong is expensive. Treat AI reviewers as sensors, not verdicts. A human owns the merge.
+Use review effort where being wrong is expensive. Run different AI review perspectives on risky changes because overlap is often low. Treat AI reviewers as sensors, not verdicts. A human owns the merge.
 
 ## Workflow
 
@@ -26,14 +26,20 @@ Use review effort where being wrong is expensive. Treat AI reviewers as sensors,
    - Medium: tests and diff review, with one AI review if available.
    - High: full CI, focused tests, two different AI reviewers if available, domain-owner human review, and security/privacy review when relevant.
 
-4. Read in the failure-prone order:
+4. Use multiple AI perspectives when risk justifies it:
+   - Prefer different tools, models, or prompts over repeated runs of the same reviewer.
+   - Assign distinct lenses: correctness, security/privacy, production impact, tests/CI integrity, and maintainability.
+   - Investigate single-reviewer findings; lack of agreement does not mean the issue is false.
+   - Treat agreement as a useful signal, not proof. Similar models can share blind spots.
+
+5. Read in the failure-prone order:
    - Test changes first, especially rewritten assertions.
    - CI/build/lint/coverage changes.
    - Public contracts, migrations, and rollback behavior.
    - Core implementation.
    - Duplicated helpers, dead code, broad rewrites, and unnecessary abstraction.
 
-5. Watch agent-specific failure modes:
+6. Watch agent-specific failure modes:
    - Tests changed to accept broken behavior.
    - Lint, coverage, or failing checks weakened to get green CI.
    - Large unfocused diffs that hide unrelated behavior changes.
@@ -41,7 +47,7 @@ Use review effort where being wrong is expensive. Treat AI reviewers as sensors,
    - User-controlled text flowing into prompts or tools without injection defenses.
    - Confident summaries with no runnable evidence.
 
-6. Triage PR queues by risk, not arrival order:
+7. Triage PR queues by risk, not arrival order:
    - Fast-track small, well-scoped changes with proof.
    - Send vague or oversized agent PRs back for smaller diffs and evidence.
    - Spend human attention on high-blast-radius paths and surprising behavior.
@@ -54,14 +60,15 @@ Use this shape unless the user asks for another format:
 Risk tier: low | medium | high
 Decision: approve | needs work | block
 Evidence checked: ...
+AI perspectives run: correctness | security | production | tests/CI | maintainability
 Human attention needed: ...
 
 Findings:
 - [severity] file:line - issue, impact, fix
 
 AI reviewer notes:
-- Useful signals:
-- False positives or gaps:
+- Signals by perspective:
+- Disagreements, false positives, or gaps:
 ```
 
 ## Source

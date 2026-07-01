@@ -8,6 +8,7 @@ This skill turns the essay's review guidance into a practical workflow for AI-ge
 
 - classify PRs by blast radius
 - require intent and proof before deep review
+- run multiple AI review perspectives for risky changes
 - review tests and CI changes before implementation details
 - watch common agent failure modes
 - use AI reviewers as signals, not merge authority
