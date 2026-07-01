@@ -51,16 +51,7 @@ How to handle it: keep a named human owner for high-risk merges.
 
 ## Needs Runtime Or Installer Support
 
-`skills.sh` covers cross-agent distribution for supported coding agents through the `skills` CLI. That means this repo does not need a separate adapter for each supported agent.
-
-Known install path:
-
-- `npx skills add lzfxxx/agentic-code-review-skill`
-
-Manual fallback paths:
-
-- Codex: `~/.codex/skills/agentic-code-review`
-- Claude Code-style skill directories: `~/.claude/skills/agentic-code-review`
+`skills.sh` covers cross-agent distribution for supported coding agents through the `skills` CLI. That means this repo does not need a separate adapter for each supported agent. Keep exact install commands in `README.md` so installer guidance has one source of truth.
 
 What still cannot be captured in the skill:
 
@@ -69,4 +60,4 @@ What still cannot be captured in the skill:
 - agent runtimes that install the file but do not auto-invoke skills reliably
 - organization-specific allowlists, mirrors, or marketplace approval rules
 
-How to handle it: use `skills.sh` as the default installer, and add a small adapter only for unsupported or locked-down environments.
+How to handle it: use `skills.sh` as the default installer. In locked-down environments, pin or allowlist the `skills` CLI through the organization's package manager, and add a small adapter only for unsupported runtimes.

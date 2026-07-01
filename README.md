@@ -37,12 +37,14 @@ Use this only when the target agent does not use the `skills` CLI but still supp
 Codex:
 
 ```bash
+mkdir -p ~/.codex/skills
 cp -R skills/agentic-code-review ~/.codex/skills/
 ```
 
 Claude Code-style skill directories:
 
 ```bash
+mkdir -p ~/.claude/skills
 cp -R skills/agentic-code-review ~/.claude/skills/
 ```
 
