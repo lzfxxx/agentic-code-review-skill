@@ -1,6 +1,6 @@
 # Agentic Code Review Skill
 
-[![skills.sh](https://skills.sh/b/lzfxxx/agentic-code-review-skill)](https://skills.sh/lzfxxx/agentic-code-review-skill)
+[![skills.sh](https://img.shields.io/badge/skills.sh-agentic--code--review-000)](https://www.skills.sh/lzfxxx/agentic-code-review-skill)
 
 `SKILL.md` agent skill distilled from Addy Osmani's [Agentic Code Review](https://addyosmani.com/blog/agentic-code-review/) essay, published June 15, 2026.
 
@@ -25,7 +25,7 @@ This skill turns the essay's review guidance into a practical workflow for AI-ge
 ## Install With skills.sh
 
 ```bash
-npx skills add https://github.com/lzfxxx/agentic-code-review-skill --skill agentic-code-review
+npx skills add lzfxxx/agentic-code-review-skill
 ```
 
 `skills.sh` lists repositories automatically after installs through the `skills` CLI.
